@@ -4,7 +4,7 @@ import jakarta.persistence.Entity;
 import jakarta.persistence.ManyToOne;
 
 @Entity
-public class Comment extends BaseEntity{
+public class Comment extends BaseEntity {
     private String content;
     private String authorName;
     private String authorEmail;
@@ -34,6 +34,7 @@ public class Comment extends BaseEntity{
     public void setAuthorEmail(String authorEmail) {
         this.authorEmail = authorEmail;
     }
+
     @ManyToOne
     public Post getPost() {
         return post;

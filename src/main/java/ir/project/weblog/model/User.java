@@ -1,10 +1,7 @@
 package ir.project.weblog.model;
 
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.EnumType;
-import jakarta.persistence.Enumerated;
-import jakarta.persistence.Table;
+import jakarta.persistence.*;
 
 @Entity
 @Table(name = "weblog_users")
@@ -56,4 +53,5 @@ public class User extends BaseEntity {
     public void setRole(Role role) {
         this.role = role;
     }
+
 }

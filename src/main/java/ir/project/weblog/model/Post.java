@@ -5,14 +5,15 @@ import jakarta.persistence.*;
 import java.util.List;
 
 @Entity
+
 public class Post extends BaseEntity {
 
     private String title;
     private String slug;
     private String content;
     private String excerpt;
-    private String status;
-    private String author;
+    private User author;
+    private Status status;
     private Category category;
     private List<Tag> tags;
     private String views;
@@ -50,29 +51,28 @@ public class Post extends BaseEntity {
         this.excerpt = excerpt;
     }
 
-    public String getStatus() {
-        return status;
-    }
-
-    public void setStatus(String status) {
-        this.status = status;
-    }
-
-
-    public String getAuthor() {
-        return author;
-    }
-
-    public void setAuthor(String author) {
-        this.author = author;
-    }
-
     public String getViews() {
         return views;
     }
 
     public void setViews(String views) {
         this.views = views;
+    }
+    @ManyToOne
+    public User getAuthor() {
+        return author;
+    }
+
+    public void setAuthor(User author) {
+        this.author = author;
+    }
+
+    public Status getStatus() {
+        return status;
+    }
+
+    public void setStatus(Status status) {
+        this.status = status;
     }
 
     @ManyToOne
