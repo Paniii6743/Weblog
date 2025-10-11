@@ -28,6 +28,7 @@ public class Tag extends BaseEntity {
     }
 
     @ManyToMany
+
     public List<Post> getPosts() {
         return posts;
     }

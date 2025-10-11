@@ -1,5 +1,5 @@
 package ir.project.weblog.model;
 
-public enum Status {
+public enum Status  {
     DRAFT, PUBLISHED
 }

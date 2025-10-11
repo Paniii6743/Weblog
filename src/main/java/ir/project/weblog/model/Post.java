@@ -2,6 +2,7 @@ package ir.project.weblog.model;
 
 import jakarta.persistence.*;
 
+import java.time.LocalDateTime;
 import java.util.List;
 
 @Entity
@@ -12,10 +13,9 @@ public class Post extends BaseEntity {
     private String slug;
     private String content;
     private String excerpt;
-    private User author;
+    private String author;
     private Status status;
     private Category category;
-    private List<Tag> tags;
     private String views;
 
 
@@ -58,15 +58,17 @@ public class Post extends BaseEntity {
     public void setViews(String views) {
         this.views = views;
     }
-    @ManyToOne
-    public User getAuthor() {
+
+
+    public String getAuthor() {
         return author;
     }
 
-    public void setAuthor(User author) {
+    public void setAuthor(String author) {
         this.author = author;
     }
 
+    @Enumerated(EnumType.STRING)
     public Status getStatus() {
         return status;
     }
@@ -84,12 +86,4 @@ public class Post extends BaseEntity {
         this.category = category;
     }
 
-    @ManyToMany
-    public List<Tag> getTags() {
-        return tags;
-    }
-
-    public void setTags(List<Tag> tags) {
-        this.tags = tags;
-    }
 }
