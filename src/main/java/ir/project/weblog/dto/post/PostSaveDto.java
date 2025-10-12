@@ -13,14 +13,18 @@ public class PostSaveDto {
     private final String title;
     private final String author;
     private final String content;
+    private final String image;
     private final Status status;
     private final int categoryId;
 
-    public PostSaveDto(String title, String author, String content, Status status, int categoryId) {
+
+    public PostSaveDto(String title, String author, String content,
+                       String image, Status status, int categoryId) {
 
         this.title = title;
         this.author = author;
         this.content = content;
+        this.image = image;
         this.status = status;
         this.categoryId = categoryId;
     }
@@ -38,6 +42,9 @@ public class PostSaveDto {
         return content;
     }
 
+    @NotNull(message = "image.is.null")
+    public String getImage() {return image;}
+
     @NotNull(message = "status.is.null")
     public Status getStatus() {
         return status;
@@ -53,6 +60,7 @@ public class PostSaveDto {
         post.setTitle(title);
         post.setAuthor(author);
         post.setContent(content);
+        post.setImage(image);
         post.setStatus(status);
         post.setCategory(category);
         return post;

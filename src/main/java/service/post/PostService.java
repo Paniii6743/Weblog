@@ -1,5 +1,6 @@
 package service.post;
 
+import ir.project.weblog.dto.post.PostDto;
 import ir.project.weblog.model.Post;
 
 import java.util.List;
@@ -16,5 +17,6 @@ public interface PostService {
 
     Post findById(int id);
 
+    List<PostDto> findByCategoryId(int categoryId);
 
 }

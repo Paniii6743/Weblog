@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="fa">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>صفحه یافت نشد</title>
+    <style>
+        * {margin:0;padding:0;box-sizing:border-box;font-family: 'Vazir', sans-serif;}
+        body {
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background: linear-gradient(135deg, #ffc0cb, #fffab5, #a8e6cf);
+            overflow: hidden;
+        }
+
+        .error-box {
+            background-color: #ffffffcc;
+            backdrop-filter: blur(8px);
+            padding: 40px 30px;
+            border-radius: 25px;
+            text-align: center;
+            box-shadow: 0 8px 25px rgba(0,0,0,0.1);
+            animation: fadeIn 0.7s ease-out;
+        }
+
+        @keyframes fadeIn {
+            from {opacity:0; transform: translateY(30px);}
+            to {opacity:1; transform: translateY(0);}
+        }
+
+        .error-box h1 {
+            font-size: 5em;
+            color: #ff69b4;
+            margin-bottom: 10px;
+        }
+
+        .error-box p {
+            color: #555;
+            font-size: 1.2em;
+            margin-bottom: 25px;
+        }
+
+        .error-box button {
+            background-color: #87cefa;
+            color: #fff;
+            font-size: 1em;
+            font-weight: bold;
+            padding: 10px 25px;
+            border: none;
+            border-radius: 20px;
+            cursor: pointer;
+            transition: background 0.3s, transform 0.2s;
+        }
+
+        .error-box button:hover {
+            background-color: #00bfff;
+            transform: scale(1.05);
+        }
+
+        @media(max-width:500px){
+            .error-box {
+                width: 85%;
+                padding: 30px 20px;
+            }
+            .error-box h1 {font-size: 4em;}
+        }
+    </style>
+</head>
+<body>
+<div class="error-box">
+    <h1>404</h1>
+    <p>.صفحه‌ای که دنبالش هستید یافت نشد</p>
+    <button onclick="window.location.href='index.html'">بازگشت به صفحه اصلی</button>
+</div>
+</body>
+</html>

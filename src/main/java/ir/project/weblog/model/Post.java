@@ -6,7 +6,7 @@ import java.time.LocalDateTime;
 import java.util.List;
 
 @Entity
-
+@Table(name = "post")
 public class Post extends BaseEntity {
 
     private String title;
@@ -17,6 +17,7 @@ public class Post extends BaseEntity {
     private Status status;
     private Category category;
     private String views;
+    private String image;
 
 
     public String getTitle() {
@@ -66,6 +67,14 @@ public class Post extends BaseEntity {
 
     public void setAuthor(String author) {
         this.author = author;
+    }
+
+    public String getImage() {
+        return image;
+    }
+
+    public void setImage(String image) {
+        this.image = image;
     }
 
     @Enumerated(EnumType.STRING)

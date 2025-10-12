@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>مدیریت پست‌ها</title>
+    <style>
+        * {margin:0;padding:0;box-sizing:border-box;font-family:"Vazir",sans-serif;}
+
+        body {
+            background: linear-gradient(135deg, #fff8dc, #ffe6eb, #fff3b0);
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: space-between;
+            padding: 30px 10px;
+        }
+
+        h1 {
+            color: #c8553d;
+            font-size: 2em;
+            margin-bottom: 30px;
+            text-shadow: 1px 1px 2px rgba(0,0,0,0.1);
+        }
+
+        table {
+            width: 95%;
+            max-width: 900px;
+            border-collapse: collapse;
+            background: #fffafc;
+            border-radius: 20px;
+            overflow: hidden;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.1);
+            direction: rtl;
+            margin-bottom: 15px; /* فاصله کم زیر جدول */
+        }
+
+        thead {
+            background-color: #fff0f5;
+            color: #8b1e3f;
+            font-weight: bold;
+        }
+
+        th, td {
+            padding: 16px;
+            text-align: center;
+            border-bottom: 1px solid #f8e1e7;
+        }
+
+        tbody tr:hover {
+            background-color: #fff5f8;
+            transition: 0.3s;
+        }
+
+        img.post-img {
+            width: 70px;
+            height: 50px;
+            object-fit: cover;
+            border-radius: 8px;
+        }
+
+        .btn {
+            border: none;
+            padding: 10px 20px;
+            border-radius: 25px;
+            cursor: pointer;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            color: white;
+            margin: 5px 0;
+            text-decoration: none;
+            display: inline-block;
+        }
+
+        .btn-edit {
+            background-color: #98e2c6;
+        }
+        .btn-edit:hover {
+            background-color: #00c896;
+            box-shadow: 0 0 8px rgba(0,200,150,0.5);
+        }
+
+        .btn-delete {
+            background-color: #ffb6c1;
+        }
+        .btn-delete:hover {
+            background-color: #ff69b4;
+            box-shadow: 0 0 8px rgba(255,105,180,0.5);
+        }
+
+        .btn-add-post {
+            background-color: #ffb6c1;
+            border-radius: 25px;
+            font-weight: bold;
+            max-width: 900px;
+            width: 95%;
+            padding: 14px;
+            text-align: center;
+        }
+        .btn-add-post:hover {
+            background-color: #ff69b4;
+            box-shadow: 0 0 8px rgba(255,105,180,0.5);
+        }
+
+        .btn-add-category {
+            background-color: #98e2c6;
+            border-radius: 25px;
+            font-weight: bold;
+            max-width: 900px;
+            width: 95%;
+            padding: 14px;
+            text-align: center;
+            margin-bottom: 15px;
+        }
+        .btn-add-category:hover {
+            background-color: #00c896;
+            box-shadow: 0 0 8px rgba(0,200,150,0.5);
+        }
+
+        footer {
+            text-align: center;
+            font-size: 0.9em;
+            color: #555;
+            padding: 14px 0;
+            margin-top: 30px;
+            width: 100%;
+            max-width: 900px;
+            border-radius: 15px;
+            background: rgba(255, 255, 255, 0.3);
+            border-top: 1px solid rgba(255, 255, 255, 0.5);
+            transition: all 0.3s ease;
+        }
+
+        footer:hover {
+            background: rgba(255, 182, 193, 0.5);
+            box-shadow: 0 0 12px rgba(255, 105, 180, 0.6);
+        }
+
+        footer span { margin: 0 6px; }
+
+        @media (max-width: 600px) {
+            th, td { font-size: 0.9em; padding: 10px; }
+            h1 { font-size: 1.6em; }
+            img.post-img { width: 50px; height: 40px; }
+            .btn { padding: 8px 12px; font-size: 0.9em; }
+        }
+    </style>
+</head>
+<body>
+
+<h1>مدیریت پست‌ها</h1>
+
+<!-- دکمه افزودن دسته بندی بالای جدول (جای قبلی افزودن پست) -->
+<a href="saveCategory.html" class="btn btn-add-category">➕ افزودن دسته‌بندی</a>
+
+<table id="postTable">
+    <thead>
+    <tr>
+        <th>شماره</th>
+        <th>تصویر</th>
+        <th>عنوان</th>
+        <th>نویسنده</th>
+        <th>دسته‌بندی</th>
+        <th>وضعیت</th>
+        <th>عملیات</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr>
+        <td>1</td>
+        <td><img src="https://via.placeholder.com/70x50" class="post-img" alt="post"></td>
+        <td>طراحی رابط کاربری</td>
+        <td>پانی</td>
+        <td>طراحی</td>
+        <td>منتشر شده</td>
+        <td>
+            <a href="editPost.html" class="btn btn-edit">ویرایش</a>
+            <button class="btn btn-delete" onclick="deletePost(this)">حذف</button>
+        </td>
+    </tr>
+    </tbody>
+</table>
+
+<!-- دکمه افزودن پست زیر جدول -->
+<a href="savePost.html" class="btn btn-add-post">➕ افزودن پست جدید</a>
+
+<footer>
+    <span>🌸</span> طراحی شده با عشق توسط پانی <span>🌸</span>
+</footer>
+
+<script>
+    function deletePost(btn) {
+        const row = btn.closest("tr");
+        row.style.opacity = "0.5";
+        row.style.textDecoration = "line-through";
+    }
+</script>
+
+</body>
+</html>

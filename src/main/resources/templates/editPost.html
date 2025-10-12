@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html lang="fa">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ویرایش پست</title>
+    <style>
+        * {margin:0;padding:0;box-sizing:border-box;font-family:'Vazir',sans-serif;}
+        body {
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background: linear-gradient(135deg, #a8e6cf, #fffab5, #e0c3fc);
+            overflow-x: hidden;
+            padding: 60px 0;
+        }
+
+        form {
+            background: #ffffffcc;
+            backdrop-filter: blur(8px);
+            padding: 35px 30px;
+            border-radius: 25px;
+            box-shadow: 0 8px 25px rgba(0,0,0,0.15);
+            width: 90%;
+            max-width: 500px;
+            direction: rtl;
+            text-align: right;
+            animation: fadeIn 0.8s ease-out;
+        }
+
+        @keyframes fadeIn {
+            from {opacity:0; transform:translateY(30px);}
+            to {opacity:1; transform:translateY(0);}
+        }
+
+        h2 {
+            text-align: center;
+            color: #555;
+            margin-bottom: 25px;
+            font-size: 1.8em;
+        }
+
+        label {display:block;margin-top:15px;color:#333;font-weight:500;}
+        input, select, textarea {
+            width:100%;
+            padding:10px 15px;
+            margin-top:8px;
+            border-radius:15px;
+            border:1px solid #ccc;
+            outline:none;
+            font-size:1em;
+        }
+
+        
+        textarea {
+            resize: none;
+            height: 100px;
+        }
+
+        input:focus, textarea:focus, select:focus {
+            border-color: #ff69b4;
+            box-shadow: 0 0 8px rgba(255,105,180,0.3);
+        }
+
+        .tags {
+            margin-top: 20px;
+        }
+
+        .tags-title {
+            font-weight: 500;
+            color: #333;
+            margin-bottom: 10px;
+            display: block;
+            font-size: 1em;
+        }
+
+        .tag-item {
+            display: inline-block;
+            background: #ffe4ec;
+            color: #555;
+            border-radius: 20px;
+            padding: 6px 12px;
+            margin: 5px 6px 0 0;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .tag-item input {
+            display: none;
+        }
+
+        .tag-item:hover {
+            background: #ffb6c1;
+            transform: scale(1.05);
+        }
+
+        .tag-item input:checked + span {
+            color: white;
+            background-color: #ff69b4;
+            border-radius: 20px;
+            padding: 6px 12px;
+        }
+
+        button {
+            margin-top:25px;
+            padding:12px;
+            width:100%;
+            background-color:#ffb6c1;
+            color:white;
+            font-weight:bold;
+            border:none;
+            border-radius:20px;
+            cursor:pointer;
+            transition: all 0.3s;
+            text-align:center;
+        }
+
+        button:hover {background-color:#ff69b4; transform: scale(1.05);}
+
+        footer {
+            text-align:center;
+            font-size:0.9em;
+            color:#555;
+            padding:12px 0;
+            margin-top:20px;
+            border-top:1px solid rgba(255,255,255,0.5);
+            border-radius:0 0 20px 20px;
+            background: rgba(255,255,255,0.3);
+        }
+
+        footer:hover {
+            background: rgba(255, 182, 193,0.5);
+            box-shadow:0 0 12px rgba(255,105,180,0.6);
+            transition: all 0.3s ease;
+        }
+
+        footer span {margin:0 5px;}
+
+        @media(max-width:500px){
+            form {padding:25px 20px;}
+            .tag-item {padding:5px 10px; font-size:0.9em;}
+        }
+    </style>
+</head>
+<body>
+<form>
+    <h2>ویرایش پست</h2>
+
+    <label>شماره پست :</label>
+    <input type="text" placeholder="شماره پست">
+
+    <label>عنوان :</label>
+    <input type="text" placeholder="مثلاً: تکنولوژی روز">
+
+    <label>نویسنده :</label>
+    <input type="text" placeholder="نام نویسنده">
+
+    <label>توضیحات :</label>
+    <textarea placeholder="متن پست را بنویسید..."></textarea>
+
+    <label>تصویر پست :</label>
+    <input type="file" accept="image/*" id="imageInput">
+    <img id="preview" style="margin-top:10px; width:100%; max-height:200px; border-radius:15px; display:none;">
+
+    <label>وضعیت :</label>
+    <select>
+        <option>منتشر شده</option>
+        <option>پیش‌نویس</option>
+    </select>
+
+    <label>دسته بندی :</label>
+    <input type="text" placeholder="شماره دسته بندی">
+
+    <div class="tags">
+        <span class="tags-title">تگ‌ها :</span>
+        <label class="tag-item"><input type="radio" name="tag"><span>💻 فناوری</span></label>
+        <label class="tag-item"><input type="radio" name="tag"><span>💊 سلامتی</span></label>
+        <label class="tag-item"><input type="radio" name="tag"><span>🎨 هنر</span></label>
+        <label class="tag-item"><input type="radio" name="tag"><span>🌍 گردشگری</span></label>
+        <label class="tag-item"><input type="radio" name="tag"><span>📚 آموزشی</span></label>
+    </div>
+
+    <button type="submit">ثبت</button>
+
+    <footer>
+        <span>🌸</span> وبلاگ طراحی شده با عشق توسط پانی <span>🌸</span>
+    </footer>
+</form>
+</body>
+</html>

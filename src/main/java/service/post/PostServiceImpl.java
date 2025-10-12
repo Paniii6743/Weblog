@@ -1,6 +1,7 @@
 package service.post;
 
 import ir.project.weblog.customeException.RuleException;
+import ir.project.weblog.dto.post.PostDto;
 import ir.project.weblog.model.Post;
 import ir.project.weblog.repository.PostRepository;
 import org.springframework.stereotype.Service;
@@ -28,8 +29,9 @@ public class PostServiceImpl implements PostService {
             .orElseThrow(()-> new RuleException("post.is.not.found"));
     post.setTitle(updatePost.getTitle());
     post.setContent(updatePost.getContent());
+        post.setImage(updatePost.getImage());
+        post.setCategory(updatePost.getCategory());
     post.setStatus(updatePost.getStatus());
-    post.setContent(updatePost.getContent());
     post.setUpdatedAt(LocalDateTime.now());
     postRepository.save(post);
 
@@ -52,6 +54,13 @@ public class PostServiceImpl implements PostService {
     public Post findById(int id) {
        return postRepository.findById(id)
                .orElseThrow(()-> new RuleException("post.is.not.found"));
+    }
+
+    @Override
+    public List<PostDto> findByCategoryId(int categoryId) {
+        return
+                postRepository.findByCategoryId(categoryId).stream()
+                        .map(PostDto::ConvertToDto).toList();
     }
 
 }

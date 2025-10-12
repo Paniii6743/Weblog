@@ -77,4 +77,10 @@ public class PostController {
                 .collect(Collectors.toList());
         return ResponseEntity.ok(postDtos);
     }
+
+    @GetMapping("/category/{categoryId}")
+    public List<PostDto> findByCategory(@PathVariable int categoryId) {
+        return postService.findByCategoryId(categoryId);
+
+    }
 }

@@ -1,0 +1,236 @@
+<!DOCTYPE html>
+<html lang="fa">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>صفحه اصلی</title>
+    <style>
+        * {margin:0;padding:0;box-sizing:border-box;font-family: 'Vazir', sans-serif;}
+        body {background-color: #fdf6e3;color:#333;line-height:1.5; min-height:100vh; display:flex; flex-direction:column;}
+
+        /* Header */
+        header {
+            background-color: #ffc0cb;
+            padding: 15px 10%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+        }
+
+        .logo {
+            font-family: 'Cursive', sans-serif;
+            font-size: 2em;
+            font-weight: bold;
+            color: #fff;
+            letter-spacing: 2px;
+            padding: 8px 18px;
+            border-radius: 25px;
+            background: linear-gradient(135deg, #ff7eb9, #ffb3c1);
+            box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+            text-shadow: 1px 1px 2px rgba(0,0,0,0.2);
+            cursor: pointer;
+            position: relative;
+        }
+
+        .logo span {
+            margin-left:8px;
+            display:inline-block;
+            transition: transform 1.5s ease-in-out;
+        }
+
+        .logo.clicked span {
+            animation: floatBalloon 2s forwards;
+        }
+
+        @keyframes floatBalloon {
+            0% {transform: translateY(0);}
+            50% {transform: translateY(-150px) rotate(10deg);}
+            100% {transform: translateY(-300px) rotate(-10deg); opacity:0;}
+        }
+
+        nav {
+            display: flex;
+            gap: 25px;
+            align-items: center;
+            flex-wrap: wrap;
+        }
+
+        nav a {
+            text-decoration: none;
+            color: #5a5a5a;
+            font-weight: bold;
+            font-size: 1.2em;
+            transition: color 0.2s;
+        }
+
+        nav a:hover {color:#ff6347;}
+
+        .search-box {
+            padding: 7px 12px;
+            border-radius: 25px;
+            border: 1px solid #ccc;
+            outline: none;
+            font-size: 1em;
+            width: 180px;
+            transition: width 0.3s, box-shadow 0.3s, background 0.3s;
+        }
+
+        .search-box:focus {
+            width: 250px;
+            box-shadow: 0 0 12px rgba(255,99,71,0.4);
+            background-color: #fff0f5;
+        }
+
+        /* Main layout */
+        main {
+            display: flex;
+            padding: 30px 10%;
+            gap: 20px;
+            flex:1;
+        }
+
+        aside {
+            flex: 1;
+            background-color: #ffe4e1;
+            padding: 20px;
+            border-radius: 15px;
+            height: fit-content;
+        }
+
+        aside h3 {
+            margin-bottom: 10px;
+            color:#5a5a5a;
+            font-size:1.3em;
+            cursor: pointer;
+        }
+
+        aside ul {list-style:none; overflow:hidden; max-height:0; transition: max-height 0.5s ease;}
+        aside ul li {
+            margin-bottom:10px;
+            padding:5px 0;
+            border-bottom:1px solid #ffc0cb;
+            cursor:pointer;
+            transition: color 0.2s;
+        }
+        aside ul li:hover {color:#ff6347;}
+        aside ul li span.emoji {margin-left:5px; margin-right:0;}
+
+        .content {flex:3; display:grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap:25px;}
+
+        .post-card {
+            background-color:#fff;
+            border-radius:20px;
+            overflow:hidden;
+            box-shadow:0 5px 15px rgba(0,0,0,0.1);
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+
+        .post-card:hover {transform: translateY(-5px); box-shadow:0 10px 20px rgba(0,0,0,0.15);}
+        .post-card img {width:100%; height:180px; object-fit:cover;}
+        .post-card h2 {font-size:1.4em; color:#ff69b4; margin:15px; font-family: 'Vazir', sans-serif;}
+        .post-card p {font-size:1em; color:#555; margin:0 15px 15px 15px; line-height:1.4;}
+
+        footer {
+            text-align:center;
+            padding:20px 10%;
+            background-color:#ffc0cb;
+            color:#5a5a5a;
+            margin-top:auto;
+            font-weight:bold;
+        }
+        footer span {margin:0 5px;}
+
+        @media(max-width:900px){
+            main{flex-direction:column;}
+            aside{margin-bottom:20px;}
+        }
+
+        @media(max-width:500px){
+            header{flex-direction:column; align-items:flex-start; gap:10px;}
+            nav{gap:10px;}
+            .search-box{width:100%;}
+        }
+
+        .open {max-height:500px;}
+    </style>
+</head>
+<body>
+<header>
+    <nav>
+        <a href="showAllPosts.html" >پست‌ها</a>
+        <a href="login.html">ورود</a>
+        <a href="register.html">ثبت نام</a>
+        <a href="index.html">خانه</a>
+        <input class="search-box" type="text" placeholder="جستجو...">
+    </nav>
+    <div class="logo" id="logo"><span>🎈</span>weblog</div>
+</header>
+
+<main>
+    <aside>
+        <h3 id="toggleTopics">موضوع‌های معروف</h3>
+        <ul id="topicsList">
+            <li><span class="emoji">💻</span> تکنولوژی</li>
+            <li><span class="emoji">❤️</span> سلامتی</li>
+            <li><span class="emoji">🎨</span> هنر و فرهنگ</li>
+            <li><span class="emoji">✈️</span> سفر و گردشگری</li>
+            <li><span class="emoji">📚</span> مطالب آموزشی</li>
+        </ul>
+    </aside>
+
+    <div class="content">
+        <div class="post-card">
+            <img src="https://via.placeholder.com/400x180.png?text=Post+1" alt="post 1">
+            <h2>عنوان پست ۱</h2>
+            <p>این یک متن نمونه برای توضیح کوتاه پست است تا ظاهر کارت را نشان دهد.</p>
+        </div>
+        <div class="post-card">
+            <img src="https://via.placeholder.com/400x180.png?text=Post+2" alt="post 2">
+            <h2>عنوان پست ۲</h2>
+            <p>متن کوتاه دیگر برای نمایشی از محتوا در کارت‌ها.</p>
+        </div>
+        <div class="post-card">
+            <img src="https://via.placeholder.com/400x180.png?text=Post+3" alt="post 3">
+            <h2>عنوان پست ۳</h2>
+            <p>نمونه متن پست سه برای تست ظاهر و ریسپانسیو بودن صفحه.</p>
+        </div>
+        <div class="post-card">
+            <img src="https://via.placeholder.com/400x180.png?text=Post+4" alt="post 4">
+            <h2>عنوان پست ۴</h2>
+            <p>نمونه متن پست چهار برای تست ظاهر و ریسپانسیو بودن صفحه.</p>
+        </div>
+        <div class="post-card">
+            <img src="https://via.placeholder.com/400x180.png?text=Post+5" alt="post 5">
+            <h2>عنوان پست ۵</h2>
+            <p>این متن صرفاً جهت پر کردن کارت است و می‌توان آن را تغییر داد.</p>
+        </div>
+        <div class="post-card">
+            <img src="https://via.placeholder.com/400x180.png?text=Post+6" alt="post 6">
+            <h2>عنوان پست ۶</h2>
+            <p>این متن صرفاً جهت پر کردن کارت است و می‌توان آن را تغییر داد.</p>
+        </div>
+    </div>
+</main>
+
+<footer>
+    <span>🌸</span> وبلاگ طراحی شده با عشق توسط پانی <span>🌸</span>
+</footer>
+
+<script>
+    // باز شدن لیست موضوع‌ها
+    const toggle = document.getElementById('toggleTopics');
+    const list = document.getElementById('topicsList');
+    toggle.addEventListener('click', () => {
+        list.classList.toggle('open');
+    });
+
+    // پرواز بادکنک لوگو
+    const logo = document.getElementById('logo');
+    logo.addEventListener('click', () => {
+        logo.classList.add('clicked');
+        setTimeout(()=>{logo.classList.remove('clicked');},2000);
+    });
+</script>
+</body>
+</html>

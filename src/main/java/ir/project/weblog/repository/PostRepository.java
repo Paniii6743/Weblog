@@ -7,6 +7,8 @@ import org.springframework.data.jpa.repository.JpaRepository;
 import java.util.List;
 
 public interface PostRepository extends JpaRepository<Post, Integer> {
-List<Post> findByCategory(Category category);
-List<Post> findByDisableDateIsNull();
+
+    List<Post> findByDisableDateIsNull();
+
+    List<Post> findByCategoryId(int categoryId);
 }

@@ -1,9 +1,12 @@
 package ir.project.weblog.model;
 
 import jakarta.persistence.Entity;
+import jakarta.persistence.JoinColumn;
 import jakarta.persistence.ManyToOne;
+import jakarta.persistence.Table;
 
 @Entity
+@Table(name = "comment")
 public class Comment extends BaseEntity {
     private String content;
     private String authorName;
@@ -36,6 +39,7 @@ public class Comment extends BaseEntity {
     }
 
     @ManyToOne
+    @JoinColumn(name = "post_id",nullable = false)
     public Post getPost() {
         return post;
     }

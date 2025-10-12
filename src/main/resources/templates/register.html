@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="fa">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ثبت نام</title>
+    <style>
+        * {margin:0;padding:0;box-sizing:border-box;font-family: 'Vazir', sans-serif;}
+        body {
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            background: linear-gradient(135deg, #a8e6cf, #ffc0cb, #f7ffb5);
+            overflow-x: hidden;
+        }
+
+        .signup-form {
+            background-color: #a8e6cf;
+            padding: 35px 25px;
+            border-radius: 25px;
+            box-shadow: 0 8px 25px rgba(0,0,0,0.2);
+            width: 100%;
+            max-width: 400px;
+            text-align: right;
+            opacity: 0;
+            transform: translateY(30px);
+            animation: formFadeIn 0.8s forwards;
+        }
+
+        @keyframes formFadeIn {
+            to {opacity:1; transform: translateY(0);}
+        }
+
+        .signup-form h2 {
+            margin-bottom: 20px;
+            color: #5a5a5a;
+            font-size: 1.8em;
+            font-weight: bold;
+            text-align: center;
+            opacity: 0;
+            transform: translateY(20px);
+            animation: fadeUp 0.5s forwards;
+            animation-delay: 0.2s;
+        }
+
+        .signup-form input {
+            width: 100%;
+            padding: 12px 15px;
+            margin: 10px 0;
+            border: 1px solid #ccc;
+            border-radius: 15px;
+            font-size: 1em;
+            outline: none;
+            text-align: right;
+            opacity: 0;
+            transform: translateY(20px);
+            animation: fadeUp 0.5s forwards;
+        }
+
+        .signup-form input:nth-child(2) {animation-delay:0.4s;}
+        .signup-form input:nth-child(3) {animation-delay:0.6s;}
+        .signup-form input:nth-child(4) {animation-delay:0.8s;}
+        .signup-form input:nth-child(5) {animation-delay:1s;}
+
+        @keyframes fadeUp {
+            to {opacity:1; transform: translateY(0);}
+        }
+
+        .signup-form input:focus {
+            border-color: #ff69b4;
+            box-shadow: 0 0 8px rgba(255,105,180,0.3);
+        }
+
+        .signup-form button {
+            margin-top: 20px;
+            padding: 12px 20px;
+            width: 100%;
+            background-color: #87cefa;
+            color: #fff;
+            font-size: 1.1em;
+            font-weight: bold;
+            border: none;
+            border-radius: 15px;
+            cursor: pointer;
+            opacity: 0;
+            transform: scale(0.8);
+            animation: buttonPop 0.5s forwards;
+            animation-delay: 1.2s;
+        }
+
+        @keyframes buttonPop {
+            to {opacity:1; transform: scale(1);}
+        }
+
+        .signup-form button:hover {
+            background-color: #00bfff;
+            transform: scale(1.05);
+        }
+
+        /* فوتر داخل فرم */
+        .signup-footer {
+            text-align:center;
+            margin-top: 20px;
+            font-size: 0.9em;
+            color:#5a5a5a;
+            padding: 8px 0;
+            border-radius: 12px;
+            transition: all 0.4s ease;
+        }
+
+        .signup-footer span {margin:0 5px;}
+
+        /* افکت hover برای فوتر */
+        .signup-footer:hover {
+            background: rgba(255,192,203,0.4);
+            box-shadow: 0 0 15px rgba(255,235,120,0.8);
+            transform: scale(1.03);
+        }
+
+        @media(max-width:500px){
+            .signup-form {padding: 25px 20px; width: 90%;}
+        }
+    </style>
+</head>
+<body>
+<form class="signup-form">
+    <h2>ثبت نام</h2>
+    <input type="text" placeholder="نام" required>
+    <input type="text" placeholder="نام کاربری" required>
+    <input type="email" placeholder="ایمیل" required>
+    <input type="password" placeholder="رمز عبور" required>
+    <button type="submit">ثبت</button>
+    <div class="signup-footer">
+        <span>🌸</span> وبلاگ طراحی شده با عشق توسط پانی <span>🌸</span>
+    </div>
+</form>
+</body>
+</html>

@@ -1,0 +1,276 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>پست وبلاگ</title>
+    <style>
+        * {margin:0; padding:0; box-sizing:border-box; font-family: 'Vazir', sans-serif;}
+        body {
+            background-color: #fdf6e3;
+            color: #333;
+            line-height: 1.6;
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh;
+        }
+
+        /* هدر */
+        header {
+            background-color: #ffc0cb;
+            padding: 15px 10%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+        }
+
+        .logo {
+            font-family: 'Cursive', sans-serif;
+            font-size: 2em;
+            font-weight: bold;
+            color: #fff;
+            letter-spacing: 2px;
+            padding: 8px 18px;
+            border-radius: 25px;
+            background: linear-gradient(135deg, #ff7eb9, #ffb3c1);
+            box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+            text-shadow: 1px 1px 2px rgba(0,0,0,0.2);
+            cursor: pointer;
+            position: relative;
+        }
+
+        .logo span {
+            margin-right: 8px;
+            display: inline-block;
+            transition: transform 1.5s ease-in-out;
+        }
+
+        .logo.clicked span {
+            animation: floatBalloon 2s forwards;
+        }
+
+        @keyframes floatBalloon {
+            0% {transform: translateY(0);}
+            50% {transform: translateY(-150px) rotate(10deg);}
+            100% {transform: translateY(-300px) rotate(-10deg); opacity:0;}
+        }
+
+        nav {
+            display: flex;
+            gap: 25px;
+            align-items: center;
+            flex-wrap: wrap;
+        }
+
+        nav a {
+            text-decoration: none;
+            color: #5a5a5a;
+            font-weight: bold;
+            font-size: 1.1em;
+            transition: color 0.2s;
+        }
+
+        nav a:hover { color: #ff6347; }
+
+        .search-box {
+            padding: 7px 12px;
+            border-radius: 25px;
+            border: 1px solid #ccc;
+            outline: none;
+            font-size: 1em;
+            width: 180px;
+            transition: width 0.3s, box-shadow 0.3s, background 0.3s;
+        }
+
+        .search-box:focus, .search-box:hover {
+            width: 250px;
+            box-shadow: 0 0 12px rgba(255,99,71,0.4);
+            background-color: #fff0f5;
+        }
+
+        /* محتوای پست */
+        .post-container {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            align-items: flex-start;
+            padding: 40px 10%;
+            gap: 40px;
+            flex: 1;
+        }
+
+        .post-image {
+            flex: 1 1 350px;
+            text-align: center;
+        }
+
+        .post-image img {
+            width: 100%;
+            max-width: 400px;
+            border-radius: 16px;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+        }
+
+        .post-details {
+            flex: 1 1 400px;
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+        }
+
+        .post-details h1 {
+            color: #c77dff;
+            font-size: 1.8em;
+        }
+
+        .post-details p {
+            font-size: 1em;
+        }
+
+        .tags {
+            margin-top: 10px;
+        }
+
+        .tag {
+            display: inline-block;
+            background-color: #ffafcc;
+            color: #fff;
+            padding: 6px 14px;
+            border-radius: 25px;
+            margin: 4px;
+            font-size: 0.9em;
+            cursor: default;
+        }
+
+        /* بخش نظرات */
+        .comments-section {
+            background-color: #fff0f5;
+            padding: 25px 10%;
+            border-top: 3px solid #ffb3c1;
+        }
+
+        .comments-section h2 {
+            color: #b185db;
+            margin-bottom: 15px;
+        }
+
+        .comment-box {
+            background-color: #f8edeb;
+            padding: 15px;
+            border-radius: 12px;
+            margin-bottom: 15px;
+        }
+
+        .comment-form {
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+            margin-top: 10px;
+        }
+
+        .comment-form textarea {
+            border-radius: 10px;
+            border: 1px solid #ccc;
+            padding: 10px;
+            resize: vertical;
+        }
+
+        .comment-form button {
+            align-self: flex-start;
+            background-color: #ff7eb9;
+            color: #fff;
+            border: none;
+            border-radius: 25px;
+            padding: 8px 20px;
+            cursor: pointer;
+            transition: transform 0.2s, box-shadow 0.2s;
+        }
+
+        .comment-form button:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 3px 8px rgba(255,99,132,0.3);
+        }
+
+        /* فوتر */
+        footer {
+            background-color: #ffc0cb;
+            text-align: center;
+            padding: 10px;
+            color: #fff;
+            font-size: 0.9em;
+            margin-top: auto;
+        }
+
+        /* ریسپانسیو */
+        @media (max-width: 768px) {
+            .post-container { flex-direction: column; align-items: center; }
+            .post-image img { max-width: 90%; }
+            .post-details { text-align: center; }
+            .comment-form button { align-self: center; }
+        }
+    </style>
+</head>
+<body>
+
+<header>
+    <div class="logo" id="logo">weblog<span>🎈</span></div>
+    <nav>
+        <input class="search-box" type="text" placeholder="جستجو...">
+        <a href="#">خانه</a>
+        <a href="#">ثبت‌نام</a>
+        <a href="#">ورود</a>
+        <a href="#">پست‌ها</a>
+    </nav>
+</header>
+
+<!-- محتوای پست -->
+<section class="post-container">
+    <div class="post-image">
+        <img src="https://via.placeholder.com/400x300" alt="تصویر پست">
+    </div>
+    <div class="post-details">
+        <h1>عنوان پست وبلاگ</h1>
+        <p>✍ نویسنده: <strong>علی رضایی</strong></p>
+        <p>📅 وضعیت: منتشرشده</p>
+        <p>
+            در این پست درباره تأثیر هنر بر ذهن و آرامش روح صحبت می‌کنیم.
+            هنر یکی از ابزارهای قوی برای بیان احساسات و افکار درونی انسان است...
+        </p>
+        <div class="tags">
+            <span class="tag">🎨 هنر</span>
+            <span class="tag">💻 فناوری</span>
+            <span class="tag">❤️ سلامتی</span>
+        </div>
+    </div>
+</section>
+
+<!-- بخش نظرات -->
+<section class="comments-section">
+    <h2>💬 نظرات کاربران</h2>
+
+    <div class="comment-box">
+        <p><strong>کاربر مریم:</strong> مقاله‌تون خیلی آموزنده بود!</p>
+    </div>
+
+    <form class="comment-form">
+        <label for="comment">ثبت نظر جدید:</label>
+        <textarea id="comment" rows="3" placeholder="نظر خود را بنویسید..."></textarea>
+        <button type="button">ثبت نظر</button>
+    </form>
+</section>
+
+<footer>
+    <span>🌸</span> وبلاگ طراحی شده با عشق توسط پانی <span>🌸</span>
+</footer>
+
+<script>
+    const logo = document.getElementById("logo");
+    logo.addEventListener("click", () => {
+        logo.classList.add("clicked");
+        setTimeout(() => logo.classList.remove("clicked"), 2000);
+    });
+</script>
+
+</body>
+</html>

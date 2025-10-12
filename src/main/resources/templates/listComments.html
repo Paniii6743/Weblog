@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>مدیریت کامنت‌ها</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: "Vazir", sans-serif;
+        }
+
+        body {
+            background: linear-gradient(135deg, #fff8dc, #ffe6eb, #fff3b0);
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            align-items: center;
+            padding: 40px 10px;
+        }
+
+        h1 {
+            color: #c8553d;
+            font-size: 2em;
+            margin-bottom: 25px;
+            text-shadow: 1px 1px 2px rgba(0,0,0,0.1);
+        }
+
+        table {
+            width: 95%;
+            max-width: 900px;
+            border-collapse: collapse;
+            background: #fffafc;
+            border-radius: 20px;
+            overflow: hidden;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.1);
+            direction: rtl;
+        }
+
+        thead {
+            background-color: #fff0f5;
+            color: #8b1e3f;
+            font-weight: bold;
+        }
+
+        th, td {
+            padding: 14px;
+            text-align: center;
+            border-bottom: 1px solid #f8e1e7;
+        }
+
+        tbody tr:hover {
+            background-color: #fff5f8;
+            transition: 0.3s;
+        }
+
+        .btn {
+            border: none;
+            padding: 6px 14px;
+            border-radius: 25px;
+            cursor: pointer;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            color: white;
+        }
+
+        .btn-approve {
+            background-color: #98e2c6;
+        }
+        .btn-approve:hover {
+            background-color: #00c896;
+            box-shadow: 0 0 8px rgba(0,200,150,0.5);
+        }
+
+        .btn-reject {
+            background-color: #ffb6c1;
+        }
+        .btn-reject:hover {
+            background-color: #ff69b4;
+            box-shadow: 0 0 8px rgba(255,105,180,0.5);
+        }
+
+        .approved-row {
+            background-color: #f0fff4;
+            border-right: 4px solid #00c896;
+        }
+
+        .rejected-row {
+            opacity: 0.6;
+            text-decoration: line-through;
+            background-color: #f9f9f9;
+            border-right: 4px solid #ff69b4;
+        }
+
+        footer {
+            text-align: center;
+            font-size: 0.9em;
+            color: #555;
+            padding: 14px 0;
+            margin-top: 25px;
+            width: 100%;
+            max-width: 900px;
+            border-radius: 15px;
+            background: rgba(255, 255, 255, 0.3);
+            border-top: 1px solid rgba(255, 255, 255, 0.5);
+            transition: all 0.3s ease;
+        }
+
+        footer:hover {
+            background: rgba(255, 182, 193, 0.5);
+            box-shadow: 0 0 12px rgba(255, 105, 180, 0.6);
+        }
+
+        footer span { margin: 0 6px; }
+
+        @media (max-width: 600px) {
+            th, td { font-size: 0.9em; padding: 10px; }
+            h1 { font-size: 1.6em; }
+        }
+    </style>
+</head>
+<body>
+<h1>مدیریت کامنت‌ها</h1>
+
+<table id="commentTable">
+    <thead>
+    <tr>
+        <th>نویسنده</th>
+        <th>نظر</th>
+        <th>عملیات</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr>
+        <td>پانی</td><td>واقعا طراحی‌هات عالیه 😍</td>
+        <td>
+            <button class="btn btn-approve" onclick="approveComment(this)">تأیید</button>
+            <button class="btn btn-reject" onclick="rejectComment(this)">رد</button>
+        </td>
+    </tr>
+    <tr>
+        <td>محمد</td><td>پست‌هات خیلی آموزنده‌س 👏</td>
+        <td>
+            <button class="btn btn-approve" onclick="approveComment(this)">تأیید</button>
+            <button class="btn btn-reject" onclick="rejectComment(this)">رد</button>
+        </td>
+    </tr>
+    <tr>
+        <td>سارا</td><td>رنگ‌بندی‌هاتو دوست دارم 💖</td>
+        <td>
+            <button class="btn btn-approve" onclick="approveComment(this)">تأیید</button>
+            <button class="btn btn-reject" onclick="rejectComment(this)">رد</button>
+        </td>
+    </tr>
+    </tbody>
+</table>
+
+<footer>
+    <span>🌸</span> طراحی شده با عشق توسط پانی <span>🌸</span>
+</footer>
+
+<script>
+    function approveComment(btn) {
+        const row = btn.closest("tr");
+        row.classList.remove("rejected-row");
+        row.classList.add("approved-row");
+    }
+
+    function rejectComment(btn) {
+        const row = btn.closest("tr");
+        row.classList.remove("approved-row");
+        row.classList.add("rejected-row");
+    }
+</script>
+</body>
+</html>
+
