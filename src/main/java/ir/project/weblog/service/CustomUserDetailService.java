@@ -1,4 +1,4 @@
-package service;
+package ir.project.weblog.service;
 
 import ir.project.weblog.model.User;
 import ir.project.weblog.repository.UserRepository;

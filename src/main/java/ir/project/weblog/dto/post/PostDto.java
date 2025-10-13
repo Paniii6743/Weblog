@@ -11,7 +11,6 @@ public class PostDto {
     private final String content;
     private final String author;
     private final String image;
-
     private final Status status;
     private final String categoryName;
     private final int categoryId;

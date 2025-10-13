@@ -5,7 +5,13 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>ورود</title>
     <style>
-        * {margin:0;padding:0;box-sizing:border-box;font-family: 'Vazir', sans-serif;}
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Vazir', sans-serif;
+        }
+
         body {
             min-height: 100vh;
             display: flex;
@@ -20,7 +26,7 @@
             background-color: #ffc0cb; /* فرم صورتی پاستیلی */
             padding: 35px 25px;
             border-radius: 25px;
-            box-shadow: 0 8px 25px rgba(0,0,0,0.2);
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.2);
             width: 100%;
             max-width: 400px;
             text-align: right;
@@ -30,7 +36,10 @@
         }
 
         @keyframes formFadeIn {
-            to {opacity:1; transform: translateY(0);}
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
         }
 
         .login-form h2 {
@@ -59,16 +68,24 @@
             animation: fadeUp 0.5s forwards;
         }
 
-        .login-form input:nth-child(2) {animation-delay:0.4s;}
-        .login-form input:nth-child(3) {animation-delay:0.6s;}
+        .login-form input:nth-child(2) {
+            animation-delay: 0.4s;
+        }
+
+        .login-form input:nth-child(3) {
+            animation-delay: 0.6s;
+        }
 
         @keyframes fadeUp {
-            to {opacity:1; transform: translateY(0);}
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
         }
 
         .login-form input:focus {
             border-color: #00bfff;
-            box-shadow: 0 0 8px rgba(0,191,255,0.3);
+            box-shadow: 0 0 8px rgba(0, 191, 255, 0.3);
         }
 
         .login-form button {
@@ -89,7 +106,10 @@
         }
 
         @keyframes buttonPop {
-            to {opacity:1; transform: scale(1);}
+            to {
+                opacity: 1;
+                transform: scale(1);
+            }
         }
 
         .login-form button:hover {
@@ -99,38 +119,78 @@
 
         /* فوتر داخل فرم */
         .login-footer {
-            text-align:center;
+            text-align: center;
             margin-top: 20px;
             font-size: 0.9em;
-            color:#5a5a5a;
+            color: #5a5a5a;
             padding: 8px 0;
             border-radius: 12px;
             transition: all 0.4s ease;
         }
 
-        .login-footer span {margin:0 5px;}
+        .login-footer span {
+            margin: 0 5px;
+        }
 
         /* افکت hover برای فوتر */
         .login-footer:hover {
-            background: rgba(168,230,207,0.4);
-            box-shadow: 0 0 15px rgba(255,192,203,0.8);
+            background: rgba(168, 230, 207, 0.4);
+            box-shadow: 0 0 15px rgba(255, 192, 203, 0.8);
             transform: scale(1.03);
         }
 
-        @media(max-width:500px){
-            .login-form {padding: 25px 20px; width: 90%;}
+        @media (max-width: 500px) {
+            .login-form {
+                padding: 25px 20px;
+                width: 90%;
+            }
         }
     </style>
 </head>
 <body>
-<form class="login-form">
+<form id="login-form" class="login-form">
     <h2>ورود</h2>
-    <input type="text" placeholder="نام کاربری" required>
-    <input type="password" placeholder="رمز عبور" required>
-    <button type="submit">ورود</button>
+    <input type="text" id="username" placeholder="نام کاربری" required>
+    <input type="password" id="password" placeholder="رمز عبور" required>
+    <button type="submit" onclick="login()">ورود</button>
     <div class="login-footer">
         <span>🌸</span> وبلاگ طراحی شده با عشق توسط پانی <span>🌸</span>
     </div>
 </form>
+<script>
+    function login() {
+        let username = document.getElementById("username").value;
+        let password = document.getElementById("password").value;
+        fetch("http://localhost:8080/users/login", {
+            method: "POST",
+            headers: {
+                "Content-type": "application/json"
+            },
+            body: JSON.stringify({ username, password })
+        })
+            .then(async res => {
+                if (res.status !== 200) {
+                    const response = await res.json();
+                    console.log(response);
+                    showErrorToast('کاربر مورد نظر یافت نشد')
+                    return;
+                }
+                return res.json();
+            })
+            .then(res => {
+                if(res) {
+                    window.location.replace("https://localhost:8080");
+                }
+            });
+    }
+
+    function showErrorToast(message) {
+        document.getElementById("toastMessage").textContent = message;
+        const toastElement = document.getElementById("errorToast");
+        const toast = new bootstrap.Toast(toastElement);
+        toast.show();
+    }
+</script>
+
 </body>
 </html>

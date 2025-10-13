@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="fa">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ثبت نام</title>
+    <style>
+        * {
+            margin:0; padding:0;
+            box-sizing:border-box;
+            font-family: 'Vazir', sans-serif;
+        }
+        body {
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+            background: linear-gradient(135deg, #a8e6cf, #ffc0cb, #f7ffb5);
+        }
+
+        .register-card {
+            background-color: #a8e6cf;
+            padding: 35px 25px;
+            border-radius: 25px;
+            box-shadow: 0 8px 25px rgba(0,0,0,0.2);
+            width: 100%;
+            max-width: 400px;
+            text-align: right;
+            animation: formFadeIn 0.8s forwards;
+            transform: translateY(30px);
+            opacity: 0;
+        }
+        @keyframes formFadeIn {
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        .register-card h2 {
+            text-align: center;
+            margin-bottom: 20px;
+            color: #5a5a5a;
+        }
+
+        .register-card input {
+            width: 100%;
+            padding: 12px 15px;
+            margin: 10px 0;
+            border: 1px solid #ccc;
+            border-radius: 15px;
+            outline: none;
+        }
+
+        .register-card input:focus {
+            border-color: #ff69b4;
+            box-shadow: 0 0 8px rgba(255,105,180,0.3);
+        }
+
+        .register-card button {
+            margin-top: 15px;
+            padding: 12px 20px;
+            width: 100%;
+            background-color: #87cefa;
+            color: #fff;
+            font-size: 1.1em;
+            border: none;
+            border-radius: 15px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .register-card button:hover {
+            background-color: #00bfff;
+            transform: scale(1.05);
+        }
+
+        .signup-footer {
+            text-align:center;
+            margin-top: 20px;
+            font-size: 0.9em;
+            color:#5a5a5a;
+            padding: 8px 0;
+            border-radius: 12px;
+            transition: all 0.4s ease;
+        }
+        .signup-footer:hover {
+            background: rgba(255,192,203,0.4);
+            box-shadow: 0 0 15px rgba(255,235,120,0.8);
+            transform: scale(1.03);
+        }
+
+        /* پیام خطا */
+        #error-box {
+            display: none;
+            background-color: #ffb3b3;
+            color: #800000;
+            padding: 10px;
+            border-radius: 10px;
+            margin-top: 10px;
+            text-align: center;
+            font-size: 0.95em;
+        }
+    </style>
+</head>
+<body>
+
+<div class="register-card">
+    <h2>ثبت ‌نام</h2>
+    <form id="register-form">
+        <input type="text" id="name" placeholder=" نام و نام خانوادگی " required>
+        <input type="text" id="username" placeholder="نام کاربری" required>
+        <input type="text" id="email" placeholder="ایمیل" required>
+        <input type="password" id="password" placeholder="رمز" required>
+
+
+
+        <button type="submit" id="saveBtn">ثبت ‌نام</button>
+
+        <div id="error-box"></div>
+
+        <div class="signup-footer">
+            <span>🌸</span> وبلاگ طراحی شده با عشق توسط پانی <span>🌸</span>
+        </div>
+    </form>
+</div>
+
+<script>
+    document.getElementById("register-form").addEventListener("submit", async (e) => {
+        e.preventDefault();
+
+        const userDto = {
+            fullName: document.getElementById("name").value,
+            username: document.getElementById("username").value,
+            email: document.getElementById("email").value,
+            password: document.getElementById("password").value
+        };
+
+        try {
+            const res = await fetch("http://localhost:8080/users/register", {
+                method: "POST",
+                headers: { "Content-Type": "application/json" },
+                body: JSON.stringify(userDto),
+                credentials: "include"
+            });
+
+            if (!res.ok) {
+                const error = await res.json();
+                alert(error.message || "خطا در ثبت نام");
+                return;
+            }
+
+            alert("ثبت نام موفق ✅");
+            window.location.href = "index.html";
+
+        } catch (err) {
+            console.error(err);
+            alert("خطای شبکه یا CORS");
+        }
+    });
+
+</script>
+</body>
+</html>

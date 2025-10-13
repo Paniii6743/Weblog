@@ -185,31 +185,7 @@
             <h2>عنوان پست ۱</h2>
             <p>این یک متن نمونه برای توضیح کوتاه پست است تا ظاهر کارت را نشان دهد.</p>
         </div>
-        <div class="post-card">
-            <img src="https://via.placeholder.com/400x180.png?text=Post+2" alt="post 2">
-            <h2>عنوان پست ۲</h2>
-            <p>متن کوتاه دیگر برای نمایشی از محتوا در کارت‌ها.</p>
-        </div>
-        <div class="post-card">
-            <img src="https://via.placeholder.com/400x180.png?text=Post+3" alt="post 3">
-            <h2>عنوان پست ۳</h2>
-            <p>نمونه متن پست سه برای تست ظاهر و ریسپانسیو بودن صفحه.</p>
-        </div>
-        <div class="post-card">
-            <img src="https://via.placeholder.com/400x180.png?text=Post+4" alt="post 4">
-            <h2>عنوان پست ۴</h2>
-            <p>نمونه متن پست چهار برای تست ظاهر و ریسپانسیو بودن صفحه.</p>
-        </div>
-        <div class="post-card">
-            <img src="https://via.placeholder.com/400x180.png?text=Post+5" alt="post 5">
-            <h2>عنوان پست ۵</h2>
-            <p>این متن صرفاً جهت پر کردن کارت است و می‌توان آن را تغییر داد.</p>
-        </div>
-        <div class="post-card">
-            <img src="https://via.placeholder.com/400x180.png?text=Post+6" alt="post 6">
-            <h2>عنوان پست ۶</h2>
-            <p>این متن صرفاً جهت پر کردن کارت است و می‌توان آن را تغییر داد.</p>
-        </div>
+
     </div>
 </main>
 
@@ -218,6 +194,7 @@
 </footer>
 
 <script>
+
     // باز شدن لیست موضوع‌ها
     const toggle = document.getElementById('toggleTopics');
     const list = document.getElementById('topicsList');
@@ -231,6 +208,12 @@
         logo.classList.add('clicked');
         setTimeout(()=>{logo.classList.remove('clicked');},2000);
     });
+
+        const apiBase = "http://localhost:8086";
+
+
+
+
 </script>
 </body>
 </html>

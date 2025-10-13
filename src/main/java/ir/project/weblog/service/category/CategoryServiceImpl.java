@@ -1,15 +1,17 @@
-package service.category;
+package ir.project.weblog.service.category;
 
 import ir.project.weblog.customeException.RuleException;
 import ir.project.weblog.dto.category.CategoryDto;
 import ir.project.weblog.dto.category.CategorySaveDto;
 import ir.project.weblog.model.Category;
 import ir.project.weblog.repository.CategoryRepository;
+import org.springframework.stereotype.Service;
 
 import java.util.List;
 import java.util.Optional;
 import java.util.stream.Collectors;
 
+@Service
 public class CategoryServiceImpl implements CategoryService {
 
     private final CategoryRepository categoryRepository;

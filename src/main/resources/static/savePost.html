@@ -159,27 +159,29 @@
 <form>
     <h2>افزودن پست جدید</h2>
 
-    <label>عنوان :</label>
-    <input type="text" placeholder="مثلاً: تکنولوژی روز">
+    <label for="title">عنوان :</label>
+    <input id="title" type="text" placeholder="مثلاً: تکنولوژی روز" name="title">
 
-    <label>نویسنده :</label>
-    <input type="text" placeholder="نام نویسنده">
+    <label for="author">نویسنده :</label>
+    <input id="author" type="text" placeholder="نام نویسنده" name="author">
 
-    <label>توضیحات :</label>
-    <textarea placeholder="متن پست را بنویسید..."></textarea>
+    <label for="content">توضیحات :</label>
+    <textarea id="content" placeholder="متن پست را بنویسید..." name="content"></textarea>
 
-    <label>تصویر پست :</label>
-    <input type="file" accept="image/*" id="imageInput">
-    <img id="preview" style="margin-top:10px; width:100%; max-height:200px; border-radius:15px; display:none;">
+    <label for="image">تصویر پست :</label>
+    <input type="text" id="image" placeholder="آدرس تصویر یا لینک آن" name="image">
 
-    <label>وضعیت :</label>
-    <select>
-        <option>منتشر شده</option>
-        <option>پیش‌نویس</option>
+    <label for="status">وضعیت :</label>
+    <select id="status" name="status">
+        <option value="منتشر شده">منتشر شده</option>
+        <option value="پیش‌نویس">پیش‌نویس</option>
     </select>
 
-    <label>دسته بندی :</label>
-    <input type="text" placeholder="شماره دسته بندی">
+    <label for="category">دسته بندی :</label>
+    <select id="category" name="category">
+        <option disabled selected>انتخاب دسته‌بندی...</option>
+        <!-- دسته‌ها از طریق fetch پر می‌شن -->
+    </select>
 
     <div class="tags">
         <span class="tags-title">تگ‌ها :</span>
@@ -190,11 +192,14 @@
         <label class="tag-item"><input type="radio" name="tag"><span>📚 آموزشی</span></label>
     </div>
 
-    <button type="submit">ثبت</button>
+    <button id="saveBtn" type="submit">ثبت</button>
+
 
     <footer>
         <span>🌸</span> وبلاگ طراحی شده با عشق توسط پانی <span>🌸</span>
     </footer>
 </form>
+
+
 </body>
 </html>

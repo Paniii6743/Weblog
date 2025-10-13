@@ -29,12 +29,12 @@ public class PostSaveDto {
         this.categoryId = categoryId;
     }
 
-    @NotBlank(message = "title.is.blank")
+    @NotBlank(message = "postTitle.is.blank")
     public String getTitle() {
         return title;
     }
 
-    @NotBlank(message = "author.is.blank")
+    @NotBlank(message = "postAuthor.is.blank")
     public String getAuthor() {return author; }
 
     @NotBlank(message = "content.is.blank")

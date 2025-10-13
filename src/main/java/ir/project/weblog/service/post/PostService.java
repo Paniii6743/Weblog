@@ -1,4 +1,4 @@
-package service.post;
+package ir.project.weblog.service.post;
 
 import ir.project.weblog.dto.post.PostDto;
 import ir.project.weblog.model.Post;

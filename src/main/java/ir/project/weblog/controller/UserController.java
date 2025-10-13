@@ -14,7 +14,7 @@ import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.security.web.context.HttpSessionSecurityContextRepository;
 import org.springframework.web.bind.annotation.*;
-import service.CustomUserDetailService;
+import ir.project.weblog.service.CustomUserDetailService;
 
 import java.util.List;
 
@@ -32,6 +32,7 @@ public class UserController {
         this.customUserDetailService = customUserDetailService;
         this.authenticationManager = authenticationManager;
     }
+
 
     @PostMapping("/register")
     public ResponseEntity<?> register(@Valid @RequestBody UserDto userDto) {

@@ -10,8 +10,8 @@ import ir.project.weblog.repository.CategoryRepository;
 import jakarta.validation.Valid;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
-import service.category.CategoryService;
-import service.post.PostService;
+import ir.project.weblog.service.category.CategoryService;
+import ir.project.weblog.service.post.PostService;
 
 import java.util.List;
 import java.util.stream.Collectors;

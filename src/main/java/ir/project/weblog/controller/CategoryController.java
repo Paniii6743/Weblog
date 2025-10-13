@@ -4,10 +4,9 @@ import ir.project.weblog.dto.SaveDto;
 import ir.project.weblog.dto.category.CategoryDto;
 import ir.project.weblog.dto.category.CategorySaveDto;
 import jakarta.validation.Valid;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
-import service.category.CategoryService;
+import ir.project.weblog.service.category.CategoryService;
 
 import java.util.List;
 
@@ -17,6 +16,7 @@ import java.util.List;
 public class CategoryController {
 
     private final CategoryService categoryService;
+
 
     public CategoryController(CategoryService categoryService) {
         this.categoryService = categoryService;
@@ -53,11 +53,6 @@ public class CategoryController {
         List<CategoryDto> categories = categoryService.findAll();
         return ResponseEntity.ok(categories);
     }
-
-
-
-
-
 
 
 }

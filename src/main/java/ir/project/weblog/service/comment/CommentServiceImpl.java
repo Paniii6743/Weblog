@@ -1,4 +1,4 @@
-package service.comment;
+package ir.project.weblog.service.comment;
 
 import ir.project.weblog.dto.comment.CommentDto;
 import ir.project.weblog.dto.comment.CommentSaveDto;
@@ -6,10 +6,11 @@ import ir.project.weblog.model.Comment;
 import ir.project.weblog.model.Post;
 import ir.project.weblog.repository.CommentRepository;
 import ir.project.weblog.repository.PostRepository;
+import org.springframework.stereotype.Service;
 
 import java.util.List;
 import java.util.stream.Collectors;
-
+@Service
 public class CommentServiceImpl implements CommentService {
     private final CommentRepository commentRepository;
     private final PostRepository postRepository;

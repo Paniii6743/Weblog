@@ -4,7 +4,7 @@ import ir.project.weblog.dto.comment.CommentDto;
 import ir.project.weblog.dto.comment.CommentSaveDto;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
-import service.comment.CommentService;
+import ir.project.weblog.service.comment.CommentService;
 
 import java.util.List;
 

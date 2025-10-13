@@ -1,11 +1,13 @@
-package service.category;
+package ir.project.weblog.service.category;
 
 import ir.project.weblog.dto.category.CategoryDto;
 import ir.project.weblog.dto.category.CategorySaveDto;
 import ir.project.weblog.model.Category;
+import org.springframework.stereotype.Service;
 
 import java.util.List;
 import java.util.Optional;
+
 
 public interface CategoryService {
 

@@ -1,4 +1,4 @@
-package service.comment;
+package ir.project.weblog.service.comment;
 
 import ir.project.weblog.dto.comment.CommentDto;
 import ir.project.weblog.dto.comment.CommentSaveDto;

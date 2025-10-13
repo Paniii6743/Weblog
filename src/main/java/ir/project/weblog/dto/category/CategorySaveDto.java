@@ -12,7 +12,7 @@ public class CategorySaveDto {
         this.name = name;
     }
 
-    @NotBlank(message = "name.is.blank")
+    @NotBlank(message = "categoryName.is.blank")
     public String getName() {
         return name;
     }
