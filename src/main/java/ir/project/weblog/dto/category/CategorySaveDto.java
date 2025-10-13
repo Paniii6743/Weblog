@@ -6,7 +6,7 @@ import jakarta.validation.constraints.NotNull;
 
 public class CategorySaveDto {
 
-    private  final String name;
+    private final String name;
 
     public CategorySaveDto(String name) {
         this.name = name;
@@ -17,7 +17,7 @@ public class CategorySaveDto {
         return name;
     }
 
-    public Category ConvertToCategory(){
+    public Category ConvertToCategory() {
         Category category = new Category();
         category.setName(name);
         return category;

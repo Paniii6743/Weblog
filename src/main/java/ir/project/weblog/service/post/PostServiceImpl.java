@@ -20,27 +20,27 @@ public class PostServiceImpl implements PostService {
     @Override
     public void save(Post post) {
         post.setCreatedAt(LocalDateTime.now());
-     postRepository.save(post);
+        postRepository.save(post);
     }
 
     @Override
     public void update(int id, Post updatePost) {
-    Post post = postRepository.findById(id)
-            .orElseThrow(()-> new RuleException("post.is.not.found"));
-    post.setTitle(updatePost.getTitle());
-    post.setContent(updatePost.getContent());
+        Post post = postRepository.findById(id)
+                .orElseThrow(() -> new RuleException("post.is.not.found"));
+        post.setTitle(updatePost.getTitle());
+        post.setContent(updatePost.getContent());
         post.setImage(updatePost.getImage());
         post.setCategory(updatePost.getCategory());
-    post.setStatus(updatePost.getStatus());
-    post.setUpdatedAt(LocalDateTime.now());
-    postRepository.save(post);
+        post.setStatus(updatePost.getStatus());
+        post.setUpdatedAt(LocalDateTime.now());
+        postRepository.save(post);
 
     }
 
     @Override
     public void delete(int id) {
         Post post = postRepository.findById(id)
-                .orElseThrow(()-> new RuleException("post.is.not.found"));
+                .orElseThrow(() -> new RuleException("post.is.not.found"));
         post.setDisableDate(LocalDateTime.now());
         postRepository.save(post);
     }
@@ -52,8 +52,8 @@ public class PostServiceImpl implements PostService {
 
     @Override
     public Post findById(int id) {
-       return postRepository.findById(id)
-               .orElseThrow(()-> new RuleException("post.is.not.found"));
+        return postRepository.findById(id)
+                .orElseThrow(() -> new RuleException("post.is.not.found"));
     }
 
     @Override

@@ -11,15 +11,15 @@ import java.util.Optional;
 
 public interface CategoryService {
 
-CategoryDto save(CategorySaveDto categorysaveDto);
+    CategoryDto save(CategorySaveDto categorysaveDto);
 
-CategoryDto update(int id, CategorySaveDto categorySaveDto);
+    CategoryDto update(int id, CategorySaveDto categorySaveDto);
 
-void delete(int id);
+    void delete(int id);
 
-List<CategoryDto> findAll();
+    List<CategoryDto> findAll();
 
-CategoryDto findById(int id);
+    CategoryDto findById(int id);
 
-Optional<Category> findEntityById(int id);
+    Optional<Category> findEntityById(int id);
 }

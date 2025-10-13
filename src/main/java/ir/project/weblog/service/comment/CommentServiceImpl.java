@@ -10,6 +10,7 @@ import org.springframework.stereotype.Service;
 
 import java.util.List;
 import java.util.stream.Collectors;
+
 @Service
 public class CommentServiceImpl implements CommentService {
     private final CommentRepository commentRepository;
@@ -49,7 +50,7 @@ public class CommentServiceImpl implements CommentService {
 
     @Override
     public void deleteById(int id) {
-    commentRepository.deleteById(Long.valueOf(id));
+        commentRepository.deleteById(Long.valueOf(id));
     }
 
     @Override

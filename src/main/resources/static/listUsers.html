@@ -26,7 +26,7 @@
             color: #c8553d;
             font-size: 2em;
             margin-bottom: 25px;
-            text-shadow: 1px 1px 2px rgba(0,0,0,0.1);
+            text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.1);
         }
 
         table {
@@ -36,7 +36,7 @@
             background: #fffafc;
             border-radius: 20px;
             overflow: hidden;
-            box-shadow: 0 5px 20px rgba(0,0,0,0.1);
+            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1);
             direction: rtl;
         }
 
@@ -70,17 +70,19 @@
         .btn-disable {
             background-color: #ffb6c1;
         }
+
         .btn-disable:hover {
             background-color: #ff69b4;
-            box-shadow: 0 0 8px rgba(255,105,180,0.5);
+            box-shadow: 0 0 8px rgba(255, 105, 180, 0.5);
         }
 
         .btn-enable {
             background-color: #98e2c6;
         }
+
         .btn-enable:hover {
             background-color: #00c896;
-            box-shadow: 0 0 8px rgba(0,200,150,0.5);
+            box-shadow: 0 0 8px rgba(0, 200, 150, 0.5);
         }
 
         .disabled-row {
@@ -108,11 +110,19 @@
             box-shadow: 0 0 12px rgba(255, 105, 180, 0.6);
         }
 
-        footer span { margin: 0 6px; }
+        footer span {
+            margin: 0 6px;
+        }
 
         @media (max-width: 600px) {
-            th, td { font-size: 0.9em; padding: 10px; }
-            h1 { font-size: 1.6em; }
+            th, td {
+                font-size: 0.9em;
+                padding: 10px;
+            }
+
+            h1 {
+                font-size: 1.6em;
+            }
         }
     </style>
 </head>
@@ -131,16 +141,31 @@
     </thead>
     <tbody>
     <tr>
-        <td>1</td><td>pani_admin</td><td>•••••••</td><td>pani@example.com</td>
-        <td><button class="btn btn-disable" onclick="toggleUser(this)">غیرفعال‌سازی</button></td>
+        <td>1</td>
+        <td>pani_admin</td>
+        <td>•••••••</td>
+        <td>pani@example.com</td>
+        <td>
+            <button class="btn btn-disable" onclick="toggleUser(this)">غیرفعال‌سازی</button>
+        </td>
     </tr>
     <tr>
-        <td>2</td><td>user123</td><td>•••••••</td><td>user123@gmail.com</td>
-        <td><button class="btn btn-disable" onclick="toggleUser(this)">غیرفعال‌سازی</button></td>
+        <td>2</td>
+        <td>user123</td>
+        <td>•••••••</td>
+        <td>user123@gmail.com</td>
+        <td>
+            <button class="btn btn-disable" onclick="toggleUser(this)">غیرفعال‌سازی</button>
+        </td>
     </tr>
     <tr>
-        <td>3</td><td>booklover</td><td>•••••••</td><td>booklover@site.com</td>
-        <td><button class="btn btn-disable" onclick="toggleUser(this)">غیرفعال‌سازی</button></td>
+        <td>3</td>
+        <td>booklover</td>
+        <td>•••••••</td>
+        <td>booklover@site.com</td>
+        <td>
+            <button class="btn btn-disable" onclick="toggleUser(this)">غیرفعال‌سازی</button>
+        </td>
     </tr>
     </tbody>
 </table>

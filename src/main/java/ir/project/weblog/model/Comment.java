@@ -39,7 +39,7 @@ public class Comment extends BaseEntity {
     }
 
     @ManyToOne
-    @JoinColumn(name = "post_id",nullable = false)
+    @JoinColumn(name = "post_id", nullable = false)
     public Post getPost() {
         return post;
     }

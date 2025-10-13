@@ -140,14 +140,12 @@ public class SecurityConfig {
                         .requestMatchers(HttpMethod.OPTIONS, "/**").permitAll()
                         .anyRequest().authenticated()
                 )
-                // ❗ غیرفعال کردن فرم لاگین پیش‌فرض
                 .formLogin(form -> form.disable())
                 .logout(logout -> logout.permitAll());
 
         return http.build();
     }
 
-    // ✅ تنظیم درست CORS برای لوکال‌هاست
     @Bean
     public CorsConfigurationSource corsConfigurationSource() {
         CorsConfiguration config = new CorsConfiguration();

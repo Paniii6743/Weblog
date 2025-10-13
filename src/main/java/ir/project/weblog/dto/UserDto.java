@@ -26,7 +26,7 @@ public class UserDto {
         return password;
     }
 
-    @NotBlank(message ="fullName.is.blank")
+    @NotBlank(message = "fullName.is.blank")
     public String getFullName() {
         return fullName;
     }

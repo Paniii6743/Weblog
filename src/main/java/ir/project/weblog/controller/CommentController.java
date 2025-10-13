@@ -12,7 +12,7 @@ import java.util.List;
 @RequestMapping("/comments")
 @CrossOrigin(allowedHeaders = "*", origins = "*")
 public class CommentController {
-private final CommentService commentService;
+    private final CommentService commentService;
 
     public CommentController(CommentService commentService) {
         this.commentService = commentService;

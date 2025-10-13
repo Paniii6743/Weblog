@@ -26,7 +26,7 @@
             color: #c8553d;
             font-size: 2em;
             margin-bottom: 25px;
-            text-shadow: 1px 1px 2px rgba(0,0,0,0.1);
+            text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.1);
         }
 
         table {
@@ -36,7 +36,7 @@
             background: #fffafc;
             border-radius: 20px;
             overflow: hidden;
-            box-shadow: 0 5px 20px rgba(0,0,0,0.1);
+            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1);
             direction: rtl;
         }
 
@@ -70,17 +70,19 @@
         .btn-approve {
             background-color: #98e2c6;
         }
+
         .btn-approve:hover {
             background-color: #00c896;
-            box-shadow: 0 0 8px rgba(0,200,150,0.5);
+            box-shadow: 0 0 8px rgba(0, 200, 150, 0.5);
         }
 
         .btn-reject {
             background-color: #ffb6c1;
         }
+
         .btn-reject:hover {
             background-color: #ff69b4;
-            box-shadow: 0 0 8px rgba(255,105,180,0.5);
+            box-shadow: 0 0 8px rgba(255, 105, 180, 0.5);
         }
 
         .approved-row {
@@ -114,11 +116,19 @@
             box-shadow: 0 0 12px rgba(255, 105, 180, 0.6);
         }
 
-        footer span { margin: 0 6px; }
+        footer span {
+            margin: 0 6px;
+        }
 
         @media (max-width: 600px) {
-            th, td { font-size: 0.9em; padding: 10px; }
-            h1 { font-size: 1.6em; }
+            th, td {
+                font-size: 0.9em;
+                padding: 10px;
+            }
+
+            h1 {
+                font-size: 1.6em;
+            }
         }
     </style>
 </head>
@@ -135,21 +145,24 @@
     </thead>
     <tbody>
     <tr>
-        <td>پانی</td><td>واقعا طراحی‌هات عالیه 😍</td>
+        <td>پانی</td>
+        <td>واقعا طراحی‌هات عالیه 😍</td>
         <td>
             <button class="btn btn-approve" onclick="approveComment(this)">تأیید</button>
             <button class="btn btn-reject" onclick="rejectComment(this)">رد</button>
         </td>
     </tr>
     <tr>
-        <td>محمد</td><td>پست‌هات خیلی آموزنده‌س 👏</td>
+        <td>محمد</td>
+        <td>پست‌هات خیلی آموزنده‌س 👏</td>
         <td>
             <button class="btn btn-approve" onclick="approveComment(this)">تأیید</button>
             <button class="btn btn-reject" onclick="rejectComment(this)">رد</button>
         </td>
     </tr>
     <tr>
-        <td>سارا</td><td>رنگ‌بندی‌هاتو دوست دارم 💖</td>
+        <td>سارا</td>
+        <td>رنگ‌بندی‌هاتو دوست دارم 💖</td>
         <td>
             <button class="btn btn-approve" onclick="approveComment(this)">تأیید</button>
             <button class="btn btn-reject" onclick="rejectComment(this)">رد</button>

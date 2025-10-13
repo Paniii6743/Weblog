@@ -32,28 +32,28 @@ public class PostController {
         this.categoryRepository = categoryRepository;
     }
 
-     @PostMapping
-     public ResponseEntity<SaveDto> save(@Valid @RequestBody PostSaveDto postSaveDto) {
-         Category category = categoryRepository.findById(postSaveDto.getCategoryId())
-                 .orElseThrow(() ->
-                         new RuleException("category.not.found"));
-         Post post = postSaveDto.convertToPost(category);
-         postService.save(post);
-         return ResponseEntity.ok(new SaveDto(post.getId()));
-     }
+    @PostMapping
+    public ResponseEntity<SaveDto> save(@Valid @RequestBody PostSaveDto postSaveDto) {
+        Category category = categoryRepository.findById(postSaveDto.getCategoryId())
+                .orElseThrow(() ->
+                        new RuleException("category.not.found"));
+        Post post = postSaveDto.convertToPost(category);
+        postService.save(post);
+        return ResponseEntity.ok(new SaveDto(post.getId()));
+    }
 
-     @PutMapping("/{id}")
-     public ResponseEntity<SaveDto> update(@PathVariable int id,
-                                           @Valid @RequestBody PostSaveDto postSaveDto) {
-         Category category = categoryRepository.findById(postSaveDto.getCategoryId())
-                 .orElseThrow(() ->
-                         new RuleException("category.not.found"));
+    @PutMapping("/{id}")
+    public ResponseEntity<SaveDto> update(@PathVariable int id,
+                                          @Valid @RequestBody PostSaveDto postSaveDto) {
+        Category category = categoryRepository.findById(postSaveDto.getCategoryId())
+                .orElseThrow(() ->
+                        new RuleException("category.not.found"));
 
 
-         Post updatedPost = postSaveDto.convertToPost(category);
-         postService.update(id, updatedPost);
-         return ResponseEntity.ok(new SaveDto(id));
-     }
+        Post updatedPost = postSaveDto.convertToPost(category);
+        postService.update(id, updatedPost);
+        return ResponseEntity.ok(new SaveDto(id));
+    }
 
     @DeleteMapping("/{id}")
     public ResponseEntity<SaveDto> delete(@PathVariable int id) {

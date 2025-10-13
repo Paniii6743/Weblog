@@ -5,7 +5,13 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>دسترسی غیرمجاز</title>
     <style>
-        * {margin:0;padding:0;box-sizing:border-box;font-family: 'Vazir', sans-serif;}
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Vazir', sans-serif;
+        }
+
         body {
             min-height: 100vh;
             display: flex;
@@ -21,13 +27,19 @@
             padding: 40px 30px;
             border-radius: 25px;
             text-align: center;
-            box-shadow: 0 8px 25px rgba(0,0,0,0.1);
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.1);
             animation: fadeIn 0.7s ease-out;
         }
 
         @keyframes fadeIn {
-            from {opacity:0; transform: translateY(30px);}
-            to {opacity:1; transform: translateY(0);}
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
         }
 
         .error-box h1 {
@@ -59,12 +71,15 @@
             transform: scale(1.05);
         }
 
-        @media(max-width:500px){
+        @media (max-width: 500px) {
             .error-box {
                 width: 85%;
                 padding: 30px 20px;
             }
-            .error-box h1 {font-size: 4em;}
+
+            .error-box h1 {
+                font-size: 4em;
+            }
         }
     </style>
 </head>
